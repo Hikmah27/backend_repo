@@ -10,7 +10,7 @@ const registerUser = (req, res) => {
     newUser.save()
 }
 
-const signin = (req, res) => {
+const signIn = (req, res) => {
     let {email, password} = req.body;
     // userModel.findOne({email:req.body.email})
     userModel.findOne({email:email})
@@ -44,6 +44,7 @@ const signin = (req, res) => {
 //     let newUser = new userModel(req.body);
 //     newUser.save()
 // }
+
 const getDashboard = (req, res) => {
     let schoolPortal = process.env.SECRET
     let token = req.headers.authorization.split(" ")[1];
@@ -59,5 +60,5 @@ const getDashboard = (req, res) => {
     })
 
 }
-module.exports = { getLandingPage, registerUser, signin, getDashboard }
+module.exports = { getLandingPage, registerUser, signIn, getDashboard }
 // module.exports = { getFormikPage }
